@@ -144,3 +144,18 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   The Tagalog track was not touched — its few nonzero-overlap entries are
   genuine Taglish blending (e.g. "MA REACH" in `HINDI KITA MA REACH`, a real
   colloquial phrase), not laziness.
+- **v4** (2026-07-12): Owner feedback after v3: no word should be used as-is
+  in the answer, full stop — including the short function words (`a`, `the`,
+  `is`, `it`, `of`, `and`...) and single "anchor" words that v3's audit
+  deliberately left alone. Wrote a script checking literal word overlap
+  (any prompt token exactly matching any answer token, regardless of
+  position) across all 72 puzzles in all 6 categories: 43 still had at least
+  one shared word. Respelled every flagged word using the same homophone
+  style already established in the file (`DUH`=the, `UH`=a, `IZ`=is, `ITT`=it,
+  `UV`=of, `N`=and, `MEE`=me, `YER`=your, `KWEEN`=queen, `AYE`=eye, etc.),
+  including the two Tagalog entries (`MA`/`REACH`→`MAH`/`REETSH`,
+  `NANG`→`NAHNG`). Re-verified with the same script: 0/72 overlaps remain.
+  Structure unchanged (72 total, 4/4/4 easy/medium/hard per category,
+  A-Z-plus-space answers only); `node --test tests/game.test.mjs` still
+  passes (24/24, unaffected since it uses its own fixture data, not
+  `categories.js`).

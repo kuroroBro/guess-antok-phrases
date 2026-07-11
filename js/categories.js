@@ -21,20 +21,20 @@ export const CATEGORIES = [
     language: 'english',
     puzzles: [
       // easy
-      { prompt: 'EEL BEE BACK', answer: 'ILL BE BACK', difficulty: 'easy' },
-      { prompt: 'WHY SO CEREAL', answer: 'WHY SO SERIOUS', difficulty: 'easy' },
-      { prompt: 'YEW TALK KING TWO ME', answer: 'YOU TALKING TO ME', difficulty: 'easy' },
-      { prompt: 'MAY THE FOURTH BEE WHIFF YEW', answer: 'MAY THE FORCE BE WITH YOU', difficulty: 'easy' },
+      { prompt: 'EEL BEE BAKK', answer: 'ILL BE BACK', difficulty: 'easy' },
+      { prompt: 'WHAI SEW CEREAL', answer: 'WHY SO SERIOUS', difficulty: 'easy' },
+      { prompt: 'YEW TALK KING TWO MEE', answer: 'YOU TALKING TO ME', difficulty: 'easy' },
+      { prompt: 'MAI DUH FOURTH BEE WHIFF YEW', answer: 'MAY THE FORCE BE WITH YOU', difficulty: 'easy' },
       // medium
-      { prompt: 'HUE STUN WE HALVE A PROBE LUM', answer: 'HOUSTON WE HAVE A PROBLEM', difficulty: 'medium' },
-      { prompt: 'LIFE IS LIKE A BEE OX OF CHOCK LATTES', answer: 'LIFE IS LIKE A BOX OF CHOCOLATES', difficulty: 'medium' },
-      { prompt: 'THEIRS NO PLAICE LIKE HOME', answer: 'THERES NO PLACE LIKE HOME', difficulty: 'medium' },
-      { prompt: 'EYE SEA DEAD PEA POOL', answer: 'I SEE DEAD PEOPLE', difficulty: 'medium' },
+      { prompt: 'HUE STUN WEE HALVE UH PROBE LUM', answer: 'HOUSTON WE HAVE A PROBLEM', difficulty: 'medium' },
+      { prompt: 'LYFE IZ LYKE UH BEE OX UV CHOCK LATTES', answer: 'LIFE IS LIKE A BOX OF CHOCOLATES', difficulty: 'medium' },
+      { prompt: 'THEIRS KNOW PLAICE LYKE HOAM', answer: 'THERES NO PLACE LIKE HOME', difficulty: 'medium' },
+      { prompt: 'EYE SEA DEDD PEA POOL', answer: 'I SEE DEAD PEOPLE', difficulty: 'medium' },
       // hard
-      { prompt: 'ELEMENT AIRY MY DEER WATT SUN', answer: 'ELEMENTARY MY DEAR WATSON', difficulty: 'hard' },
-      { prompt: 'LUKE EYE AM YOUR FODDER', answer: 'LUKE I AM YOUR FATHER', difficulty: 'hard' },
-      { prompt: 'HAIRS LOOK KING AT EWE KID', answer: 'HERES LOOKING AT YOU KID', difficulty: 'hard' },
-      { prompt: 'TWO IN FIN UH TEE AND BEE YAWNED', answer: 'TO INFINITY AND BEYOND', difficulty: 'hard' },
+      { prompt: 'ELEMENT AIRY MYE DEER WATT SUN', answer: 'ELEMENTARY MY DEAR WATSON', difficulty: 'hard' },
+      { prompt: 'LEWK EYE AHM YER FODDER', answer: 'LUKE I AM YOUR FATHER', difficulty: 'hard' },
+      { prompt: 'HAIRS LOOK KING ATT EWE KIDD', answer: 'HERES LOOKING AT YOU KID', difficulty: 'hard' },
+      { prompt: 'TWO IN FIN UH TEE N BEE YAWNED', answer: 'TO INFINITY AND BEYOND', difficulty: 'hard' },
     ],
   },
   {
@@ -44,19 +44,19 @@ export const CATEGORIES = [
     puzzles: [
       // easy
       { prompt: 'EYE LUFF EWE', answer: 'I LOVE YOU', difficulty: 'easy' },
-      { prompt: 'WANTS A PAWN UH THYME', answer: 'ONCE UPON A TIME', difficulty: 'easy' },
-      { prompt: 'BRAKE A LEG', answer: 'BREAK A LEG', difficulty: 'easy' },
-      { prompt: 'PEAS OF CAKE', answer: 'PIECE OF CAKE', difficulty: 'easy' },
+      { prompt: 'WANTS UH PAWN UH THYME', answer: 'ONCE UPON A TIME', difficulty: 'easy' },
+      { prompt: 'BRAKE UH LEGG', answer: 'BREAK A LEG', difficulty: 'easy' },
+      { prompt: 'PEAS UV KAYK', answer: 'PIECE OF CAKE', difficulty: 'easy' },
       // medium
       { prompt: 'BYTE DUH BULL IT', answer: 'BITE THE BULLET', difficulty: 'medium' },
-      { prompt: 'SPIEL DUH BEANS', answer: 'SPILL THE BEANS', difficulty: 'medium' },
-      { prompt: 'HIT DUH SAKS', answer: 'HIT THE SACK', difficulty: 'medium' },
-      { prompt: 'UNDER DUH WHETHER', answer: 'UNDER THE WEATHER', difficulty: 'medium' },
+      { prompt: 'SPIEL DUH BEENZ', answer: 'SPILL THE BEANS', difficulty: 'medium' },
+      { prompt: 'HITT DUH SAKS', answer: 'HIT THE SACK', difficulty: 'medium' },
+      { prompt: 'UHN DER DUH WHETHER', answer: 'UNDER THE WEATHER', difficulty: 'medium' },
       // hard
       { prompt: 'TOO BEE OAR KNOT TOO BEE', answer: 'TO BE OR NOT TO BE', difficulty: 'hard' },
-      { prompt: 'DUH PEN IS MITE EE UR DEN DUH SOARED', answer: 'THE PEN IS MIGHTIER THAN THE SWORD', difficulty: 'hard' },
-      { prompt: 'ALL THAT GLITTERS IS KNOT GOALED', answer: 'ALL THAT GLITTERS IS NOT GOLD', difficulty: 'hard' },
-      { prompt: 'FOR TUNE FAVORS DUH BOWLED', answer: 'FORTUNE FAVORS THE BOLD', difficulty: 'hard' },
+      { prompt: 'DUH PENN IZ MITE EE UR DEN DUH SOARED', answer: 'THE PEN IS MIGHTIER THAN THE SWORD', difficulty: 'hard' },
+      { prompt: 'AWL DAT GLIT TERZ IZ KNOT GOALED', answer: 'ALL THAT GLITTERS IS NOT GOLD', difficulty: 'hard' },
+      { prompt: 'FOR TUNE FAY VORS DUH BOWLED', answer: 'FORTUNE FAVORS THE BOLD', difficulty: 'hard' },
     ],
   },
   {
@@ -65,20 +65,20 @@ export const CATEGORIES = [
     language: 'english',
     puzzles: [
       // easy
-      { prompt: 'LIT IT GO', answer: 'LET IT GO', difficulty: 'easy' },
-      { prompt: 'BEE OUR GUESSED', answer: 'BE OUR GUEST', difficulty: 'easy' },
-      { prompt: 'HELL OH FROM THE OTTER SIGHED', answer: 'HELLO FROM THE OTHER SIDE', difficulty: 'easy' },
-      { prompt: 'CALL ME MAY BEE', answer: 'CALL ME MAYBE', difficulty: 'easy' },
+      { prompt: 'LIT ITT GOH', answer: 'LET IT GO', difficulty: 'easy' },
+      { prompt: 'BEE OWER GUESSED', answer: 'BE OUR GUEST', difficulty: 'easy' },
+      { prompt: 'HELL OH FRUM DUH OTTER SIGHED', answer: 'HELLO FROM THE OTHER SIDE', difficulty: 'easy' },
+      { prompt: 'KAWL MEE MAY BEE', answer: 'CALL ME MAYBE', difficulty: 'easy' },
       // medium
-      { prompt: 'DONT STOP BEE LEAFING', answer: 'DONT STOP BELIEVING', difficulty: 'medium' },
+      { prompt: 'DOHNT STAHP BEE LEAFING', answer: 'DONT STOP BELIEVING', difficulty: 'medium' },
       { prompt: 'SUITE CAROL LINE', answer: 'SWEET CAROLINE', difficulty: 'medium' },
-      { prompt: 'KNOW WOE MEN KNOW CRY', answer: 'NO WOMAN NO CRY', difficulty: 'medium' },
-      { prompt: 'EYE OF THE TIE GER', answer: 'EYE OF THE TIGER', difficulty: 'medium' },
+      { prompt: 'KNOW WOE MEN KNOW KRY', answer: 'NO WOMAN NO CRY', difficulty: 'medium' },
+      { prompt: 'AYE UV DUH TIE GER', answer: 'EYE OF THE TIGER', difficulty: 'medium' },
       // hard
-      { prompt: 'WE WILL ROCK CHEW', answer: 'WE WILL ROCK YOU', difficulty: 'hard' },
-      { prompt: 'EYE WONT IT DAT WEIGH', answer: 'I WANT IT THAT WAY', difficulty: 'hard' },
-      { prompt: 'DAN SING QUEEN', answer: 'DANCING QUEEN', difficulty: 'hard' },
-      { prompt: 'HIT ME BAY BEE WON MOOR THYME', answer: 'HIT ME BABY ONE MORE TIME', difficulty: 'hard' },
+      { prompt: 'WEE WIHL RAHK CHEW', answer: 'WE WILL ROCK YOU', difficulty: 'hard' },
+      { prompt: 'EYE WONT ITT DAT WEIGH', answer: 'I WANT IT THAT WAY', difficulty: 'hard' },
+      { prompt: 'DAN SING KWEEN', answer: 'DANCING QUEEN', difficulty: 'hard' },
+      { prompt: 'HITT MEE BAY BEE WON MOOR THYME', answer: 'HIT ME BABY ONE MORE TIME', difficulty: 'hard' },
     ],
   },
   {
@@ -88,19 +88,19 @@ export const CATEGORIES = [
     puzzles: [
       // easy
       { prompt: 'KNOW PEE KING', answer: 'NO PEEKING', difficulty: 'easy' },
-      { prompt: 'PASS DUH MY CRO PHONE', answer: 'PASS THE MICROPHONE', difficulty: 'easy' },
-      { prompt: 'THYME IZ UP PEN SILLS DOWN', answer: 'TIMES UP PENCILS DOWN', difficulty: 'easy' },
-      { prompt: 'RED IT OUT LOUD', answer: 'READ IT OUT LOUD', difficulty: 'easy' },
+      { prompt: 'PAHS DUH MY CRO PHONE', answer: 'PASS THE MICROPHONE', difficulty: 'easy' },
+      { prompt: 'THYME IZ UHP PEN SILLS DOWNE', answer: 'TIMES UP PENCILS DOWN', difficulty: 'easy' },
+      { prompt: 'RED ITT OWT LOWD', answer: 'READ IT OUT LOUD', difficulty: 'easy' },
       // medium
-      { prompt: 'HOOZ TERN IS IT ANY WEIGH', answer: 'WHOSE TURN IS IT ANYWAY', difficulty: 'medium' },
-      { prompt: 'SAY WUT UH GEN', answer: 'SAY WHAT AGAIN', difficulty: 'medium' },
-      { prompt: 'DUH AN SIR IS RITE THERE', answer: 'THE ANSWER IS RIGHT THERE', difficulty: 'medium' },
-      { prompt: 'THINK PASSED DONT BLY INK', answer: 'THINK FAST DONT BLINK', difficulty: 'medium' },
+      { prompt: 'HOOZ TERN IZ ITT ANY WEIGH', answer: 'WHOSE TURN IS IT ANYWAY', difficulty: 'medium' },
+      { prompt: 'SEY WUT UH GEN', answer: 'SAY WHAT AGAIN', difficulty: 'medium' },
+      { prompt: 'DUH AN SIR IZ RITE THAIR', answer: 'THE ANSWER IS RIGHT THERE', difficulty: 'medium' },
+      { prompt: 'THINGK PASSED DOHNT BLY INK', answer: 'THINK FAST DONT BLINK', difficulty: 'medium' },
       // hard
       { prompt: 'AB SO LOOT NON SENSE', answer: 'ABSOLUTE NONSENSE', difficulty: 'hard' },
-      { prompt: 'KAY OSS IS UH LAD HER', answer: 'CHAOS IS A LADDER', difficulty: 'hard' },
+      { prompt: 'KAY OSS IZ UH LAD HER', answer: 'CHAOS IS A LADDER', difficulty: 'hard' },
       { prompt: 'LIS TEN WHIFF YER AIRS', answer: 'LISTEN WITH YOUR EARS', difficulty: 'hard' },
-      { prompt: 'DUH KLOK IS TICK KING', answer: 'THE CLOCK IS TICKING', difficulty: 'hard' },
+      { prompt: 'DUH KLOK IZ TICK KING', answer: 'THE CLOCK IS TICKING', difficulty: 'hard' },
     ],
   },
   {
@@ -115,7 +115,7 @@ export const CATEGORIES = [
       { prompt: 'TA BEE TA BEE POH', answer: 'TABI TABI PO', difficulty: 'easy' },
       // medium
       { prompt: 'WAH LANG HE MAH LAH', answer: 'WALANG HIMALA', difficulty: 'medium' },
-      { prompt: 'HIN DEE KEY TAH MA REACH', answer: 'HINDI KITA MA REACH', difficulty: 'medium' },
+      { prompt: 'HIN DEE KEY TAH MAH REETSH', answer: 'HINDI KITA MA REACH', difficulty: 'medium' },
       { prompt: 'UNG BUH HAY EYE WED ER WED ER LAHNG', answer: 'ANG BUHAY AY WEATHER WEATHER LANG', difficulty: 'medium' },
       { prompt: 'BAH KIT MAH LOONG COT UNG BESH EE KOH', answer: 'BAKIT MALUNGKOT ANG BESHY KO', difficulty: 'medium' },
       // hard
@@ -142,7 +142,7 @@ export const CATEGORIES = [
       { prompt: 'LAH GOT KAH KAI HAUST', answer: 'LAGOT KA KAY HOST', difficulty: 'medium' },
       // hard
       { prompt: 'HOO LAAN MOH UNG SA GOT', answer: 'HULAAN MO ANG SAGOT', difficulty: 'hard' },
-      { prompt: 'BA SAH HIN MOH NANG MAH LAH KAS', answer: 'BASAHIN MO NANG MALAKAS', difficulty: 'hard' },
+      { prompt: 'BA SAH HIN MOH NAHNG MAH LAH KAS', answer: 'BASAHIN MO NANG MALAKAS', difficulty: 'hard' },
       { prompt: 'PA RAW KAHNG AN TALK NAH AN TALK', answer: 'PARA KANG ANTOK NA ANTOK', difficulty: 'hard' },
       { prompt: 'SEE GAW MOH KOONG AH LAM MOH', answer: 'SIGAW MO KUNG ALAM MO', difficulty: 'hard' },
     ],
