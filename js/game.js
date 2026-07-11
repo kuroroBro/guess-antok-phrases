@@ -16,8 +16,6 @@ export const TIMER_STATUS = {
   RUNNING: 'running',
 };
 
-const DIFFICULTY_TIERS = ['easy', 'medium', 'hard'];
-
 function shuffle(arr, rng = Math.random) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -27,19 +25,18 @@ function shuffle(arr, rng = Math.random) {
   return a;
 }
 
-// Combine puzzles from every selected category into one deck, grouped by
-// difficulty tier *across* all selected categories (not grouped by category),
-// shuffled within each tier — see plan.md's "Deck construction".
+// Combine puzzles from every selected category into one deck and shuffle the
+// whole thing together — difficulty is mixed throughout, not dealt in
+// easy/medium/hard blocks (see plan.md's "Deck construction").
 function buildDeck(categoryIds, categoryPool, rng) {
   const selected = categoryPool.filter((c) => categoryIds.includes(c.id));
-  const byTier = { easy: [], medium: [], hard: [] };
+  const pool = [];
   for (const category of selected) {
     for (const puzzle of category.puzzles) {
-      const tier = byTier[puzzle.difficulty] ? puzzle.difficulty : 'easy';
-      byTier[tier].push({ ...puzzle, categoryId: category.id });
+      pool.push({ ...puzzle, categoryId: category.id });
     }
   }
-  return DIFFICULTY_TIERS.flatMap((tier) => shuffle(byTier[tier], rng));
+  return shuffle(pool, rng);
 }
 
 export function createGame(settings, categoryPool, rng = Math.random) {

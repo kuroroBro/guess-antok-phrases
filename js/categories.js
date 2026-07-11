@@ -31,9 +31,7 @@ export const CATEGORIES = [
       { prompt: 'THEIRS KNOW PLAICE LYKE HOAM', answer: 'THERES NO PLACE LIKE HOME', difficulty: 'medium' },
       { prompt: 'EYE SEA DEDD PEA POOL', answer: 'I SEE DEAD PEOPLE', difficulty: 'medium' },
       // hard
-      { prompt: 'ELEMENT AIRY MYE DEER WATT SUN', answer: 'ELEMENTARY MY DEAR WATSON', difficulty: 'hard' },
       { prompt: 'LEWK EYE AHM YER FODDER', answer: 'LUKE I AM YOUR FATHER', difficulty: 'hard' },
-      { prompt: 'HAIRS LOOK KING ATT EWE KIDD', answer: 'HERES LOOKING AT YOU KID', difficulty: 'hard' },
       { prompt: 'TWO IN FIN UH TEE N BEE YAWNED', answer: 'TO INFINITY AND BEYOND', difficulty: 'hard' },
     ],
   },
@@ -48,9 +46,7 @@ export const CATEGORIES = [
       { prompt: 'BRAKE UH LEGG', answer: 'BREAK A LEG', difficulty: 'easy' },
       { prompt: 'PEAS UV KAYK', answer: 'PIECE OF CAKE', difficulty: 'easy' },
       // medium
-      { prompt: 'BYTE DUH BULL IT', answer: 'BITE THE BULLET', difficulty: 'medium' },
       { prompt: 'SPIEL DUH BEENZ', answer: 'SPILL THE BEANS', difficulty: 'medium' },
-      { prompt: 'HITT DUH SAKS', answer: 'HIT THE SACK', difficulty: 'medium' },
       { prompt: 'UHN DER DUH WHETHER', answer: 'UNDER THE WEATHER', difficulty: 'medium' },
       // hard
       { prompt: 'TOO BEE OAR KNOT TOO BEE', answer: 'TO BE OR NOT TO BE', difficulty: 'hard' },
@@ -88,9 +84,9 @@ export const CATEGORIES = [
     puzzles: [
       // easy
       { prompt: 'KNOW PEE KING', answer: 'NO PEEKING', difficulty: 'easy' },
-      { prompt: 'PAHS DUH MY CRO PHONE', answer: 'PASS THE MICROPHONE', difficulty: 'easy' },
+      { prompt: 'PUSH DONT MY CHIFFON', answer: 'PASS THE MICROPHONE', difficulty: 'easy' },
       { prompt: 'THYME IZ UHP PEN SILLS DOWNE', answer: 'TIMES UP PENCILS DOWN', difficulty: 'easy' },
-      { prompt: 'RED ITT OWT LOWD', answer: 'READ IT OUT LOUD', difficulty: 'easy' },
+      { prompt: 'READY AWE LAW', answer: 'READ IT OUT LOUD', difficulty: 'easy' },
       // medium
       { prompt: 'HOOZ TERN IZ ITT ANY WEIGH', answer: 'WHOSE TURN IS IT ANYWAY', difficulty: 'medium' },
       { prompt: 'SEY WUT UH GEN', answer: 'SAY WHAT AGAIN', difficulty: 'medium' },
@@ -120,7 +116,6 @@ export const CATEGORIES = [
       { prompt: 'BAH KIT MAH LOONG COT UNG BESH EE KOH', answer: 'BAKIT MALUNGKOT ANG BESHY KO', difficulty: 'medium' },
       // hard
       { prompt: 'TIE YO NASA ANTI POLO', answer: 'TAYO NA SA ANTIPOLO', difficulty: 'hard' },
-      { prompt: 'NA SUNK AH MA ROO JA', answer: 'NASAAN KA MARUJA', difficulty: 'hard' },
       { prompt: 'A KNOCK', answer: 'ANAK', difficulty: 'hard' },
       { prompt: 'HE TOE UNG GOOS TOH KOH', answer: 'ITO ANG GUSTO KO', difficulty: 'hard' },
     ],
@@ -139,12 +134,43 @@ export const CATEGORIES = [
       { prompt: 'AH NOH BAH YARN', answer: 'ANO BA YAN', difficulty: 'medium' },
       { prompt: 'GAYM NAH BAH', answer: 'GAME NA BA', difficulty: 'medium' },
       { prompt: 'KOO HA MOH BAH TOH', answer: 'KUHA MO BA TO', difficulty: 'medium' },
-      { prompt: 'LAH GOT KAH KAI HAUST', answer: 'LAGOT KA KAY HOST', difficulty: 'medium' },
       // hard
       { prompt: 'HOO LAAN MOH UNG SA GOT', answer: 'HULAAN MO ANG SAGOT', difficulty: 'hard' },
       { prompt: 'BA SAH HIN MOH NAHNG MAH LAH KAS', answer: 'BASAHIN MO NANG MALAKAS', difficulty: 'hard' },
       { prompt: 'PA RAW KAHNG AN TALK NAH AN TALK', answer: 'PARA KANG ANTOK NA ANTOK', difficulty: 'hard' },
       { prompt: 'SEE GAW MOH KOONG AH LAM MOH', answer: 'SIGAW MO KUNG ALAM MO', difficulty: 'hard' },
+    ],
+  },
+  {
+    id: 'pop-culture-en',
+    name: 'Pop Culture Mashup',
+    language: 'english',
+    puzzles: [
+      // easy
+      { prompt: 'CROUP MISS ITCH', answer: 'GROUP MESSAGE', difficulty: 'easy' },
+      { prompt: 'HIGHS CREEK KOHN', answer: 'ICE CREAM CONE', difficulty: 'easy' },
+      { prompt: 'PAROAH SIGHT IT', answer: 'PARASITE', difficulty: 'easy' },
+      { prompt: 'PHASE FOLK', answer: 'FACEBOOK', difficulty: 'easy' },
+      { prompt: 'MARRY OAK HEART', answer: 'MARIO KART', difficulty: 'easy' },
+      { prompt: 'CHI SAND WHY IM', answer: 'CHEESE AND WINE', difficulty: 'easy' },
+      { prompt: 'CORE WAR AUNTY IN', answer: 'QUARANTINE', difficulty: 'easy' },
+      // medium
+      { prompt: 'FAYE STEW PHASE', answer: 'FACE TO FACE', difficulty: 'medium' },
+      { prompt: 'SHE IS BURG HER', answer: 'CHEESE BURGER', difficulty: 'medium' },
+      { prompt: 'DRAIN TUBE OCEAN', answer: 'TRAIN TO BUSAN', difficulty: 'medium' },
+      { prompt: 'MERE ORES ELF FREE', answer: 'MIRROR SELFIE', difficulty: 'medium' },
+      { prompt: 'BULL LAG FRIED HAY', answer: 'BLACK FRIDAY', difficulty: 'medium' },
+      { prompt: 'HINTS TOE CRAM STARRY', answer: 'INSTAGRAM STORY', difficulty: 'medium' },
+      { prompt: 'DOOR HER TEXT PULL HORROR', answer: 'DORA THE EXPLORER', difficulty: 'medium' },
+      { prompt: 'KNIT FLICK SAND CHILLE', answer: 'NETFLIX AND CHILL', difficulty: 'medium' },
+      // hard
+      { prompt: 'HERO DEATH DORY', answer: 'HEREDITARY', difficulty: 'hard' },
+      { prompt: 'EWE KNIGHT TED KING DUMB', answer: 'UNITED KINGDOM', difficulty: 'hard' },
+      { prompt: 'BEP HER OWN KNEE PEAS UH', answer: 'PEPPERONI PIZZA', difficulty: 'hard' },
+      { prompt: 'HIGH WHEEL HALL WEIGHTS LOAF VIEW', answer: 'I WILL ALWAYS LOVE YOU', difficulty: 'hard' },
+      { prompt: 'IS BUNCH POPS QUEER PANS', answer: 'SPONGEBOB SQUARE PANTS', difficulty: 'hard' },
+      { prompt: 'EYE KEY ARE MELTABLE', answer: 'IKEA MEATBALL', difficulty: 'hard' },
+      { prompt: 'KEY PINK CUP WITHER CART ASHY ANTS', answer: 'KEEPING UP WITH THE KARDASHIANS', difficulty: 'hard' },
     ],
   },
 ];

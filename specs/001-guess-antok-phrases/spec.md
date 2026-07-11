@@ -41,8 +41,9 @@ Acceptance criteria:
   spaces.
 - Host can award Team A, award Team B, or skip.
 - Puzzles do not repeat within a game.
-- Decks are ordered easy, then medium, then hard across all selected
-  categories, shuffled inside each tier.
+- The deck combines puzzles from every selected category and shuffles them
+  together; difficulty is mixed throughout, not dealt in easy/medium/hard
+  blocks.
 
 ### US-2a: Play single-device mode
 

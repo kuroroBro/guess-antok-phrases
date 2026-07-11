@@ -34,14 +34,12 @@ function freshGame(overrides = {}) {
   );
 }
 
-test('createGame builds a deck ordered easy -> medium -> hard across categories', () => {
+test('createGame builds one shuffled deck from every selected category, difficulty mixed throughout', () => {
   const state = freshGame();
   assert.equal(state.phase, PHASE.LOBBY);
   assert.equal(state.deck.length, 4);
-  assert.equal(state.deck[0].difficulty, 'easy');
-  assert.equal(state.deck[1].difficulty, 'easy');
-  assert.equal(state.deck[2].difficulty, 'medium');
-  assert.equal(state.deck[3].difficulty, 'hard');
+  const difficulties = state.deck.map((p) => p.difficulty).sort();
+  assert.deepEqual(difficulties, ['easy', 'easy', 'hard', 'medium']);
 });
 
 test('createGame only includes puzzles from selected categories', () => {
@@ -71,9 +69,9 @@ test('revealLetter is a no-op when hints are disabled', () => {
 test('revealLetter picks a random blank via the provided rng, never a space', () => {
   const state = freshGame();
   startGame(state);
-  awardPoint(state, 'a'); // I LOVE YOU
-  awardPoint(state, 'a'); // ILL BE BACK
-  assert.equal(state.puzzle.answer, 'ONCE UPON A TIME');
+  // Deck order isn't fixed anymore (difficulty is mixed throughout), so skip
+  // to the puzzle this test actually needs rather than assuming a position.
+  while (state.puzzle.answer !== 'ONCE UPON A TIME') skipPuzzle(state);
   // blank candidates exclude spaces; the final candidate is the last E.
   const rng = () => 0.999; // always picks the last candidate in the list
   assert.equal(revealLetter(state, rng), true);
@@ -85,8 +83,7 @@ test('revealLetter picks a random blank via the provided rng, never a space', ()
 test('revealLetter (default rng) never reveals a space and eventually reveals every letter once', () => {
   const state = freshGame();
   startGame(state);
-  awardPoint(state, 'a');
-  awardPoint(state, 'a'); // now on ONCE UPON A TIME
+  while (state.puzzle.answer !== 'ONCE UPON A TIME') skipPuzzle(state);
   const letterIndexes = [0, 1, 2, 3, 5, 6, 7, 8, 10, 12, 13, 14, 15];
   for (let i = 0; i < letterIndexes.length; i++) {
     assert.equal(revealLetter(state), true);
@@ -108,9 +105,7 @@ test('revealLetter stops (returns false) once the word is fully revealed', () =>
 test('maskedAnswer hides unrevealed letters, always shows spaces', () => {
   const state = freshGame();
   startGame(state);
-  awardPoint(state, 'a');
-  awardPoint(state, 'a');
-  assert.equal(state.puzzle.answer, 'ONCE UPON A TIME');
+  while (state.puzzle.answer !== 'ONCE UPON A TIME') skipPuzzle(state);
   revealLetter(state, () => 0); // deterministic: picks the first blank candidate, index 0 ('O')
   const masked = maskedAnswer(state.puzzle);
   assert.equal(masked[0].char, 'O');

@@ -41,9 +41,9 @@ breaks.
 ## Rules Engine
 
 `createGame(settings, categoryPool, rng)` builds one deck from selected
-categories. Puzzles are grouped by difficulty across all selected categories:
-easy first, then medium, then hard. Each tier is shuffled with the injected
-RNG for testability.
+categories: every puzzle from every selected category is pooled together and
+shuffled as a whole with the injected RNG for testability, so difficulty is
+mixed throughout instead of dealt in easy/medium/hard blocks.
 
 The game phases are `lobby`, `playing`, and `gameover`. Every puzzle
 transition goes through the same deal path so timer state always resets to
@@ -159,3 +159,36 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   A-Z-plus-space answers only); `node --test tests/game.test.mjs` still
   passes (24/24, unaffected since it uses its own fixture data, not
   `categories.js`).
+- **v5** (2026-07-12): Owner content update: reworded `RED IT OUT LOUD`
+  (answer `READ IT OUT LOUD`) to `READY AWE LAW` and `PASS DUH MY CRO PHONE`
+  (answer `PASS THE MICROPHONE`) to `PUSH DONT MY CHIFFON`; removed 6 cards
+  (`BITE THE BULLET`, `HIT THE SACK`, `HERES LOOKING AT YOU KID`,
+  `ELEMENTARY MY DEAR WATSON`, `NASAAN KA MARUJA`, `LAGOT KA KAY HOST`);
+  added a new `pop-culture-en` category ("Pop Culture Mashup", 22 cards
+  covering movies/shows/brands/memes like Parasite, Hereditary, Train to
+  Busan, Spongebob Squarepants, IKEA meatball, Keeping Up with the
+  Kardashians). All new/edited prompts re-verified with the v4 overlap
+  script at 0/88 hits, no duplicate answers, valid A-Z-plus-space answers.
+  Categories no longer need an even 4/4/4 easy/medium/hard split (the
+  removals left some at 10-11 cards, unevenly split) — that was only ever
+  an artifact of how the original 6 categories were authored, never a
+  hard rule.
+  Also fixed a reported "cards feel unrandomized" bug: `buildDeck()` in
+  `js/game.js` dealt puzzles in fixed easy→medium→hard blocks (per the
+  original spec), shuffling only within each tier — so a small category's
+  first few cards were always the same difficulty tier, just reordered.
+  Verified live via a Playwright script driving Single mode through
+  `chromium` (no `chromium-cli` available, so scripted directly against
+  the `playwright` package) across 3 consecutive "Play Again" runs: the
+  shuffle itself was already correct (different order each run), but the
+  same 4 "easy" answers always led every run. Changed `buildDeck()` to pool
+  every selected category's puzzles and shuffle the whole deck together, so
+  difficulty is mixed throughout instead of dealt in blocks; updated
+  `spec.md`'s US-2 acceptance criteria and this file's "Rules Engine"
+  section to match, and rewrote the one test
+  (`tests/game.test.mjs`) that asserted the old block order — plus 3 tests
+  that assumed a specific puzzle would land at a fixed deck index, which
+  no longer holds now that difficulty isn't grouped; they now advance with
+  `skipPuzzle` until reaching the specific puzzle they need instead of
+  relying on position. All 24 tests pass; re-ran the same live Playwright
+  check afterward and confirmed difficulty is now mixed within each run.
