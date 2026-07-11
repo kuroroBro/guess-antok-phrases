@@ -40,3 +40,17 @@
 - [x] Run `node --test tests/game.test.mjs`.
 - [x] Run a local static server smoke test.
 - [x] Check Host and Display screens at default browser viewport.
+
+## Phase 6 - Content quality pass + home background (post-launch)
+
+- [x] Audit all 72 phrase cards across all 6 categories by reading each
+      prompt aloud against its answer; fix invented/ambiguous spellings and
+      the handful of real prompt/answer mismatches found (see plan.md
+      Changelog v2 for the full list).
+- [x] Verify structurally: A-Z-plus-space only, 4/4/4 easy/medium/hard split
+      preserved per category, 72 total puzzles unchanged.
+- [x] Verify visually via Playwright through Single mode (spot-checked
+      Pinoy Lines and Pinoy Party entries, including the two fixed
+      mismatches).
+- [x] Generate `images/home-bg.jpg` via the `image-gen` skill and wire it
+      into `#screen-home`'s background in `css/styles.css`.

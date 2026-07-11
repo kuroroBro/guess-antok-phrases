@@ -95,3 +95,30 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   - Host setup opens a room
   - Display joins by code
   - prompt, masked tiles, scoring, skip, timer, and game over render correctly
+
+## Changelog
+
+- **v2** (2026-07-12): Content quality pass over all 72 phrase cards across
+  all 6 categories. The prior version leaned on invented, ambiguous
+  spellings (`SEER E US`, `FOURSS`, `CHALK LETS`, `MITE HEAR`) that don't
+  map cleanly to a sound a Host can read aloud correctly, plus a handful of
+  outright defects: `party-chaos-en`'s first entry (`WE DYNAMIC CUP PULL`
+  for `WIN A MATCHING COUPLE`) didn't phonetically match its answer at all;
+  `pinoy-party`'s `PAH KYN NAH` had an extra fragment not accounted for in
+  its 2-word answer `KAIN NA`; `music-pop-en`'s "Dancing Queen" and
+  `party-chaos-en`'s "Think Fast" entries had a prompt word that didn't
+  correspond to any word in the answer (`QUEUE IN` vs `QUEEN`, `BLANK` vs
+  `BLINK`); `pinoy-lines`' `TUBBY TUBBY POH` used the wrong vowel sound for
+  `TABI TABI PO`. Rewrote every prompt to use real, plain words (or the
+  game's own small set of established filler syllables — `duh`, `uh`, `ee`)
+  so the Host can read each one aloud correctly on the first try; verified
+  structurally (A-Z-plus-space only, 4/4/4 easy/medium/hard split preserved
+  per category, 72 total unchanged) and visually via a Playwright run
+  through Single mode. Also added a home-screen background image
+  (`images/home-bg.jpg`, generated via the `image-gen` skill — two friends
+  at a night table, one reading a gibberish card aloud with sound-wave
+  lines, the other sleepy-eyed with a lightbulb moment, playing on "antok" =
+  sleepy) wired into `#screen-home` in `css/styles.css` with a dark gradient
+  overlay for text legibility. Intended to be reused as-is for this game's
+  future `gondoit.work` portfolio card, same pattern as Emoji Says and Word
+  Scramble.

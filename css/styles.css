@@ -48,8 +48,8 @@ h1, h2, h3 {
 
 #screen-home {
   background:
-    repeating-linear-gradient(90deg, transparent 0 16px, rgba(255, 255, 255, 0.04) 16px 18px),
-    radial-gradient(circle at 50% 14%, rgba(46, 196, 182, 0.18), transparent 24rem);
+    linear-gradient(180deg, rgba(29, 16, 39, 0.55) 0%, rgba(29, 16, 39, 0.93) 85%),
+    url('../images/home-bg.jpg') center top / cover no-repeat;
 }
 
 .muted {
