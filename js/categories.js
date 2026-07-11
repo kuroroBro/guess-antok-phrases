@@ -23,17 +23,17 @@ export const CATEGORIES = [
       // easy
       { prompt: 'EEL BEE BACK', answer: 'ILL BE BACK', difficulty: 'easy' },
       { prompt: 'WHY SO CEREAL', answer: 'WHY SO SERIOUS', difficulty: 'easy' },
-      { prompt: 'YEW TALKING TWO ME', answer: 'YOU TALKING TO ME', difficulty: 'easy' },
+      { prompt: 'YEW TALK KING TWO ME', answer: 'YOU TALKING TO ME', difficulty: 'easy' },
       { prompt: 'MAY THE FOURTH BEE WHIFF YEW', answer: 'MAY THE FORCE BE WITH YOU', difficulty: 'easy' },
       // medium
-      { prompt: 'HUE STUN WE HAVE A PROBLEM', answer: 'HOUSTON WE HAVE A PROBLEM', difficulty: 'medium' },
-      { prompt: 'LIFE IS LIKE A BOX OF CHOCK LATTES', answer: 'LIFE IS LIKE A BOX OF CHOCOLATES', difficulty: 'medium' },
-      { prompt: 'THEIRS NO PLACE LIKE HOME', answer: 'THERES NO PLACE LIKE HOME', difficulty: 'medium' },
+      { prompt: 'HUE STUN WE HALVE A PROBE LUM', answer: 'HOUSTON WE HAVE A PROBLEM', difficulty: 'medium' },
+      { prompt: 'LIFE IS LIKE A BEE OX OF CHOCK LATTES', answer: 'LIFE IS LIKE A BOX OF CHOCOLATES', difficulty: 'medium' },
+      { prompt: 'THEIRS NO PLAICE LIKE HOME', answer: 'THERES NO PLACE LIKE HOME', difficulty: 'medium' },
       { prompt: 'EYE SEA DEAD PEA POOL', answer: 'I SEE DEAD PEOPLE', difficulty: 'medium' },
       // hard
       { prompt: 'ELEMENT AIRY MY DEER WATT SUN', answer: 'ELEMENTARY MY DEAR WATSON', difficulty: 'hard' },
       { prompt: 'LUKE EYE AM YOUR FODDER', answer: 'LUKE I AM YOUR FATHER', difficulty: 'hard' },
-      { prompt: 'HAIRS LOOKING AT EWE KID', answer: 'HERES LOOKING AT YOU KID', difficulty: 'hard' },
+      { prompt: 'HAIRS LOOK KING AT EWE KID', answer: 'HERES LOOKING AT YOU KID', difficulty: 'hard' },
       { prompt: 'TWO IN FIN UH TEE AND BEE YAWNED', answer: 'TO INFINITY AND BEYOND', difficulty: 'hard' },
     ],
   },
@@ -43,20 +43,20 @@ export const CATEGORIES = [
     language: 'english',
     puzzles: [
       // easy
-      { prompt: 'EYE LOVE EWE', answer: 'I LOVE YOU', difficulty: 'easy' },
+      { prompt: 'EYE LUFF EWE', answer: 'I LOVE YOU', difficulty: 'easy' },
       { prompt: 'WANTS A PAWN UH THYME', answer: 'ONCE UPON A TIME', difficulty: 'easy' },
       { prompt: 'BRAKE A LEG', answer: 'BREAK A LEG', difficulty: 'easy' },
       { prompt: 'PEAS OF CAKE', answer: 'PIECE OF CAKE', difficulty: 'easy' },
       // medium
       { prompt: 'BYTE DUH BULL IT', answer: 'BITE THE BULLET', difficulty: 'medium' },
-      { prompt: 'SPILL DUH BEANS', answer: 'SPILL THE BEANS', difficulty: 'medium' },
+      { prompt: 'SPIEL DUH BEANS', answer: 'SPILL THE BEANS', difficulty: 'medium' },
       { prompt: 'HIT DUH SAKS', answer: 'HIT THE SACK', difficulty: 'medium' },
       { prompt: 'UNDER DUH WHETHER', answer: 'UNDER THE WEATHER', difficulty: 'medium' },
       // hard
       { prompt: 'TOO BEE OAR KNOT TOO BEE', answer: 'TO BE OR NOT TO BE', difficulty: 'hard' },
-      { prompt: 'DUH PEN IS MITE EE UR DEN DUH SWORD', answer: 'THE PEN IS MIGHTIER THAN THE SWORD', difficulty: 'hard' },
-      { prompt: 'ALL THAT GLITTERS IS KNOT GOLD', answer: 'ALL THAT GLITTERS IS NOT GOLD', difficulty: 'hard' },
-      { prompt: 'FOR TUNE FAVORS DUH BOLD', answer: 'FORTUNE FAVORS THE BOLD', difficulty: 'hard' },
+      { prompt: 'DUH PEN IS MITE EE UR DEN DUH SOARED', answer: 'THE PEN IS MIGHTIER THAN THE SWORD', difficulty: 'hard' },
+      { prompt: 'ALL THAT GLITTERS IS KNOT GOALED', answer: 'ALL THAT GLITTERS IS NOT GOLD', difficulty: 'hard' },
+      { prompt: 'FOR TUNE FAVORS DUH BOWLED', answer: 'FORTUNE FAVORS THE BOLD', difficulty: 'hard' },
     ],
   },
   {
@@ -66,19 +66,19 @@ export const CATEGORIES = [
     puzzles: [
       // easy
       { prompt: 'LIT IT GO', answer: 'LET IT GO', difficulty: 'easy' },
-      { prompt: 'BEE OUR GUEST', answer: 'BE OUR GUEST', difficulty: 'easy' },
-      { prompt: 'HELL OH FROM THE OTTER SIDE', answer: 'HELLO FROM THE OTHER SIDE', difficulty: 'easy' },
+      { prompt: 'BEE OUR GUESSED', answer: 'BE OUR GUEST', difficulty: 'easy' },
+      { prompt: 'HELL OH FROM THE OTTER SIGHED', answer: 'HELLO FROM THE OTHER SIDE', difficulty: 'easy' },
       { prompt: 'CALL ME MAY BEE', answer: 'CALL ME MAYBE', difficulty: 'easy' },
       // medium
       { prompt: 'DONT STOP BEE LEAFING', answer: 'DONT STOP BELIEVING', difficulty: 'medium' },
-      { prompt: 'SWEET CAROL LINE', answer: 'SWEET CAROLINE', difficulty: 'medium' },
+      { prompt: 'SUITE CAROL LINE', answer: 'SWEET CAROLINE', difficulty: 'medium' },
       { prompt: 'KNOW WOE MEN KNOW CRY', answer: 'NO WOMAN NO CRY', difficulty: 'medium' },
       { prompt: 'EYE OF THE TIE GER', answer: 'EYE OF THE TIGER', difficulty: 'medium' },
       // hard
       { prompt: 'WE WILL ROCK CHEW', answer: 'WE WILL ROCK YOU', difficulty: 'hard' },
-      { prompt: 'EYE WANT IT DAT WEIGH', answer: 'I WANT IT THAT WAY', difficulty: 'hard' },
+      { prompt: 'EYE WONT IT DAT WEIGH', answer: 'I WANT IT THAT WAY', difficulty: 'hard' },
       { prompt: 'DAN SING QUEEN', answer: 'DANCING QUEEN', difficulty: 'hard' },
-      { prompt: 'HIT ME BAY BEE WON MORE THYME', answer: 'HIT ME BABY ONE MORE TIME', difficulty: 'hard' },
+      { prompt: 'HIT ME BAY BEE WON MOOR THYME', answer: 'HIT ME BABY ONE MORE TIME', difficulty: 'hard' },
     ],
   },
   {
@@ -89,17 +89,17 @@ export const CATEGORIES = [
       // easy
       { prompt: 'KNOW PEE KING', answer: 'NO PEEKING', difficulty: 'easy' },
       { prompt: 'PASS DUH MY CRO PHONE', answer: 'PASS THE MICROPHONE', difficulty: 'easy' },
-      { prompt: 'THYME IZ UP PENCILS DOWN', answer: 'TIMES UP PENCILS DOWN', difficulty: 'easy' },
+      { prompt: 'THYME IZ UP PEN SILLS DOWN', answer: 'TIMES UP PENCILS DOWN', difficulty: 'easy' },
       { prompt: 'RED IT OUT LOUD', answer: 'READ IT OUT LOUD', difficulty: 'easy' },
       // medium
       { prompt: 'HOOZ TERN IS IT ANY WEIGH', answer: 'WHOSE TURN IS IT ANYWAY', difficulty: 'medium' },
       { prompt: 'SAY WUT UH GEN', answer: 'SAY WHAT AGAIN', difficulty: 'medium' },
-      { prompt: 'DUH ANSWER IS RIGHT THERE', answer: 'THE ANSWER IS RIGHT THERE', difficulty: 'medium' },
-      { prompt: 'THINK FAST DONT BLINK', answer: 'THINK FAST DONT BLINK', difficulty: 'medium' },
+      { prompt: 'DUH AN SIR IS RITE THERE', answer: 'THE ANSWER IS RIGHT THERE', difficulty: 'medium' },
+      { prompt: 'THINK PASSED DONT BLY INK', answer: 'THINK FAST DONT BLINK', difficulty: 'medium' },
       // hard
       { prompt: 'AB SO LOOT NON SENSE', answer: 'ABSOLUTE NONSENSE', difficulty: 'hard' },
       { prompt: 'KAY OSS IS UH LAD HER', answer: 'CHAOS IS A LADDER', difficulty: 'hard' },
-      { prompt: 'LISSEN WHIFF YER EARS', answer: 'LISTEN WITH YOUR EARS', difficulty: 'hard' },
+      { prompt: 'LIS TEN WHIFF YER AIRS', answer: 'LISTEN WITH YOUR EARS', difficulty: 'hard' },
       { prompt: 'DUH KLOK IS TICK KING', answer: 'THE CLOCK IS TICKING', difficulty: 'hard' },
     ],
   },

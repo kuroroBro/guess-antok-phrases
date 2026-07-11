@@ -122,3 +122,25 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   overlay for text legibility. Intended to be reused as-is for this game's
   future `gondoit.work` portfolio card, same pattern as Emoji Says and Word
   Scramble.
+- **v3** (2026-07-12): Owner feedback after v2: "some words were used as is" —
+  several prompts still left more than one meaningful content word copied
+  verbatim from the answer (not just short function words like `a`/`the`/`is`),
+  which reads as lazy gibberish rather than a real phonetic disguise. Worst
+  offenders: `LIFE IS LIKE A BOX OF CHOCOLATES` left `LIFE`, `BOX` both
+  untouched; `HOUSTON WE HAVE A PROBLEM` left `HAVE`, `PROBLEM` both
+  untouched; `THINK FAST DONT BLINK` was still 100% identical to its own
+  answer even after v2 (an oversight — the v2 changelog claimed this entry
+  was fixed, but the mismatched word was swapped without adding any actual
+  disguise). Audited all 48 English-track entries with a script
+  counting literal content-word overlap (excluding short function words —
+  articles, prepositions, basic pronouns, negation) and fixed every entry
+  down to at most one unavoidable "anchor" word, using real-word homophones
+  throughout (`PLAICE` for "place", `GUESSED` for "guest", `SOARED` for
+  "sword", `GOALED` for "gold", `SIGHED` for "side", `SUITE` for "sweet",
+  `AN SIR`/`RITE` for "answer"/"right", `BEE OX` for "box", `PROBE LUM` for
+  "problem", `AIRS` for "ears", `MOOR`/`WONT` for "more"/"want"). Re-verified
+  structurally (still 4/4/4 per category, 72 total, A-Z-plus-space only) and
+  visually via a 20-card Playwright run through Single mode's English track.
+  The Tagalog track was not touched — its few nonzero-overlap entries are
+  genuine Taglish blending (e.g. "MA REACH" in `HINDI KITA MA REACH`, a real
+  colloquial phrase), not laziness.

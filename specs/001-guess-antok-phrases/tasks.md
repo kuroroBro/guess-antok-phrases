@@ -54,3 +54,15 @@
       mismatches).
 - [x] Generate `images/home-bg.jpg` via the `image-gen` skill and wire it
       into `#screen-home`'s background in `css/styles.css`.
+
+## Phase 7 - Reduce undisguised content words (post-launch)
+
+- [x] Write a script to flag any answer word (excluding short function
+      words) that appears verbatim in its own prompt, across all 48
+      English-track entries.
+- [x] Fix every entry down to at most one unavoidable "anchor" word,
+      preferring real-word homophones over leaving words untouched.
+- [x] Re-verify structurally (4/4/4 per category, 72 total, A-Z-plus-space
+      only) and visually via a 20-card Playwright run through Single mode.
+- [x] Leave the Tagalog track untouched — its few nonzero-overlap entries
+      are genuine Taglish blending, not undisguised copies.
