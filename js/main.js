@@ -3,7 +3,9 @@ import {
   maskedAnswer, startTimer, checkTimerExpired, timerRemainingMs,
 } from './game.js';
 import { CATEGORIES } from './categories.js';
-import { loadSettings, saveSettings } from './storage.js';
+import {
+  countPuzzles, filterUnusedCategories, loadSettings, markPuzzleUsed, resetUsedPuzzleKeys, saveSettings,
+} from './storage.js';
 import { hostRoom, joinRoom, normalizeCode } from './room.js';
 
 const $ = (id) => document.getElementById(id);
@@ -32,6 +34,8 @@ let peerCount = 0;
 let clockOffset = 0;    // Display only: hostNow - Date.now() at last snapshot
 let setupMode = 'host'; // 'host' | 'single'
 let singleAnswerVisible = false;
+
+const RESET_USED_CARDS_MESSAGE = 'All cards in the selected categories have been used. Reset card data so cards can be reused?';
 
 // ---------- shared render helpers (phonetic gibberish / letter tiles) ----------
 // The prompt is safe to send to the Display; the answer is not. The Host
@@ -96,6 +100,22 @@ function redactState(state) {
 function broadcastState() {
   if (room && role === 'host') {
     room.broadcast({ t: 'state', state: redactState(game), hostNow: Date.now() });
+  }
+}
+
+function createGameFromUnusedCards(gameSettings) {
+  let categoryPool = filterUnusedCategories(CATEGORIES, gameSettings.categoryIds);
+  if (countPuzzles(categoryPool, gameSettings.categoryIds) === 0) {
+    if (!window.confirm(RESET_USED_CARDS_MESSAGE)) return null;
+    resetUsedPuzzleKeys();
+    categoryPool = CATEGORIES;
+  }
+  return createGame(gameSettings, categoryPool);
+}
+
+function markCurrentPuzzleUsed() {
+  if ((role === 'host' || role === 'single') && game?.puzzle) {
+    markPuzzleUsed(game.puzzle.categoryId, game.puzzle);
   }
 }
 
@@ -266,7 +286,12 @@ $('btn-start-room').addEventListener('click', () => {
   if (!validateSetup()) return;
   settings = readSetupSettings();
   saveSettings(settings);
-  game = createGame(settings, CATEGORIES);
+  game = createGameFromUnusedCards(settings);
+  if (!game) {
+    $('setup-error').hidden = false;
+    $('setup-error').textContent = 'No unused cards left. Reset card data to start a new game.';
+    return;
+  }
   role = 'host';
 
   $('btn-start-room').disabled = true;
@@ -292,16 +317,22 @@ $('btn-start-single').addEventListener('click', () => {
   if (!validateSetup()) return;
   settings = readSetupSettings();
   saveSettings(settings);
-  game = createGame({
+  game = createGameFromUnusedCards({
     ...settings,
     teamNames: { a: 'Solved', b: 'Skipped' },
-  }, CATEGORIES);
+  });
+  if (!game) {
+    $('setup-error').hidden = false;
+    $('setup-error').textContent = 'No unused cards left. Reset card data to start a new game.';
+    return;
+  }
   role = 'single';
   room?.close?.();
   room = null;
   peerCount = 0;
   singleAnswerVisible = false;
   startGame(game, Date.now());
+  markCurrentPuzzleUsed();
   renderSinglePanel();
   showScreen('screen-single-panel');
 });
@@ -335,6 +366,7 @@ $('btn-copy-code').addEventListener('click', () => {
 
 $('btn-start-game').addEventListener('click', () => {
   startGame(game, Date.now());
+  markCurrentPuzzleUsed();
   renderHostPanel();
   showScreen('screen-host-panel');
   broadcastState();
@@ -368,6 +400,7 @@ function renderHostPanel() {
 }
 
 function afterHostAction() {
+  markCurrentPuzzleUsed();
   if (game.phase === PHASE.GAMEOVER) {
     renderGameOver();
     showScreen('screen-gameover');
@@ -438,8 +471,11 @@ function renderGameOver() {
 
 $('btn-play-again').addEventListener('click', () => {
   const teamNames = role === 'single' ? { a: 'Solved', b: 'Skipped' } : settings.teamNames;
-  game = createGame({ ...settings, teamNames }, CATEGORIES);
+  const nextGame = createGameFromUnusedCards({ ...settings, teamNames });
+  if (!nextGame) return;
+  game = nextGame;
   startGame(game, Date.now());
+  markCurrentPuzzleUsed();
   if (role === 'single') {
     singleAnswerVisible = false;
     renderSinglePanel();
@@ -476,6 +512,7 @@ function renderSinglePanel() {
 }
 
 function afterSingleAction() {
+  markCurrentPuzzleUsed();
   singleAnswerVisible = false;
   if (game.phase === PHASE.GAMEOVER) {
     renderGameOver();
