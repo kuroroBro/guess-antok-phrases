@@ -173,4 +173,24 @@ export const CATEGORIES = [
       { prompt: 'KEY PINK CUP WITHER CART ASHY ANTS', answer: 'KEEPING UP WITH THE KARDASHIANS', difficulty: 'hard' },
     ],
   },
+  {
+    id: 'salitang-pinoy',
+    name: 'Salitang Pinoy',
+    language: 'tagalog',
+    puzzles: [
+      // easy
+      { prompt: 'TOO BIG', answer: 'TUBIG', difficulty: 'easy' },
+      { prompt: 'TWO LOG', answer: 'TULOG', difficulty: 'easy' },
+      { prompt: 'HELLO HELLO', answer: 'HALO HALO', difficulty: 'easy' },
+      { prompt: 'PEEL LA', answer: 'PILA', difficulty: 'easy' },
+      { prompt: 'SAM POOH', answer: 'SAMPU', difficulty: 'easy' },
+      // medium
+      { prompt: 'PUSH ARE WAY', answer: 'PASAWAY', difficulty: 'medium' },
+      { prompt: 'BROOM BYE', answer: 'BUMBAY', difficulty: 'medium' },
+      { prompt: 'CAR DATE TEE', answer: 'KADETE', difficulty: 'medium' },
+      // hard
+      { prompt: 'ALLEY BUG TAG', answer: 'ALIBATA', difficulty: 'hard' },
+      { prompt: 'LOADE EYE', answer: 'LODI', difficulty: 'hard' },
+    ],
+  },
 ];

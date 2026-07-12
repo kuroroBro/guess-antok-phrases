@@ -192,3 +192,10 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   `skipPuzzle` until reaching the specific puzzle they need instead of
   relying on position. All 24 tests pass; re-ran the same live Playwright
   check afterward and confirmed difficulty is now mixed within each run.
+- **v6** (2026-07-12): Added a new `salitang-pinoy` category ("Salitang
+  Pinoy", 10 cards) for single Filipino vocabulary words — Tubig, Tulog,
+  Halo Halo, Pila, Sampu, Pasaway, Bumbay, Kadete, Alibata, Lodi. Flagged
+  "Bumbay" to the owner beforehand since it's Filipino slang for Indian/South
+  Asian people that can read as derogatory; owner confirmed it's meant as
+  neutral local slang and to include it as-is. Re-verified with the overlap
+  script (0/98 hits across all 8 categories), no duplicate answers.
