@@ -45,6 +45,10 @@ export function createGame(settings, categoryPool, rng = Math.random) {
     hintsEnabled: settings.hintsEnabled ?? false,
     // null/0 = timer disabled entirely (no timer UI, no auto-skip).
     timerSeconds: settings.timerSeconds || null,
+    // If on, every dealt puzzle starts counting down immediately instead of
+    // waiting for the Host to tap Start Timer. Has no effect without
+    // timerSeconds configured.
+    autoStartTimer: settings.autoStartTimer ?? false,
     timerStatus: TIMER_STATUS.PAUSED,
     timerDeadline: null,
     // null/0 = no target — play through the whole deck, same as before this
@@ -64,14 +68,20 @@ export function createGame(settings, categoryPool, rng = Math.random) {
 // Copies deck[puzzleIndex] into state.puzzle with a fresh revealedIndexes
 // list, or ends the game if the deck is exhausted. Returns false if the game
 // ended (deck exhausted), true if a puzzle was dealt. Every puzzle
-// transition — award, skip, or timer expiry — goes through here, so every
-// new puzzle always starts with its timer paused, never running: the Host
-// decides when the clock actually starts for the next round.
-function dealPuzzle(state) {
+// transition — award, skip, or timer expiry — goes through here. By default
+// the timer resets to paused, waiting for the Host to start it; with
+// autoStartTimer on, it starts running immediately instead, so `now` is
+// needed to compute its deadline.
+function dealPuzzle(state, now) {
   state.puzzleIndex += 1;
   const next = state.deck[state.puzzleIndex];
-  state.timerStatus = TIMER_STATUS.PAUSED;
-  state.timerDeadline = null;
+  if (state.autoStartTimer && state.timerSeconds) {
+    state.timerStatus = TIMER_STATUS.RUNNING;
+    state.timerDeadline = now + state.timerSeconds * 1000;
+  } else {
+    state.timerStatus = TIMER_STATUS.PAUSED;
+    state.timerDeadline = null;
+  }
   if (!next) {
     endGame(state);
     return false;
@@ -95,11 +105,11 @@ function endGame(state, explicitWinner) {
   state.phase = PHASE.GAMEOVER;
 }
 
-export function startGame(state) {
+export function startGame(state, now) {
   if (state.phase !== PHASE.LOBBY) return false;
   if (state.deck.length === 0) return false;
   state.phase = PHASE.PLAYING;
-  dealPuzzle(state);
+  dealPuzzle(state, now);
   return true;
 }
 
@@ -124,7 +134,7 @@ export function revealLetter(state, rng = Math.random) {
   return true;
 }
 
-export function awardPoint(state, teamId) {
+export function awardPoint(state, teamId, now) {
   if (state.phase !== PHASE.PLAYING) return false;
   if (!state.teams[teamId]) return false;
   state.teams[teamId].score += 1;
@@ -132,13 +142,13 @@ export function awardPoint(state, teamId) {
     endGame(state, teamId); // reaching the target wins outright, no draw possible
     return true;
   }
-  dealPuzzle(state);
+  dealPuzzle(state, now);
   return true;
 }
 
-export function skipPuzzle(state) {
+export function skipPuzzle(state, now) {
   if (state.phase !== PHASE.PLAYING) return false;
-  dealPuzzle(state);
+  dealPuzzle(state, now);
   return true;
 }
 
@@ -163,7 +173,7 @@ export function checkTimerExpired(state, now) {
   if (state.phase !== PHASE.PLAYING) return false;
   if (state.timerStatus !== TIMER_STATUS.RUNNING) return false;
   if (now < state.timerDeadline) return false;
-  dealPuzzle(state);
+  dealPuzzle(state, now);
   return true;
 }
 

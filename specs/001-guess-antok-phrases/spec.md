@@ -84,6 +84,9 @@ Acceptance criteria:
 - While paused, the Display blurs the prompt to prevent a head start.
 - Time running out auto-skips with no point and deals the next card paused.
 - Host can manually award or skip regardless of timer state.
+- Auto-start Timer is an optional Host setting: when on, each card's timer
+  starts running the instant it's dealt instead of waiting for Start Timer,
+  and the Display shows the prompt immediately (no pause to blur).
 
 ## Functional Requirements
 

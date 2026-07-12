@@ -199,3 +199,23 @@ but paused, the Display blurs the phrase card until the Host starts the timer.
   Asian people that can read as derogatory; owner confirmed it's meant as
   neutral local slang and to include it as-is. Re-verified with the overlap
   script (0/98 hits across all 8 categories), no duplicate answers.
+- **v7** (2026-07-12): Added an optional Auto-start Timer setting (owner
+  request, opt-in per game). `createGame()` reads `settings.autoStartTimer`
+  into `state.autoStartTimer` (default false); `dealPuzzle()` in
+  `js/game.js` now starts the timer running immediately when it's on
+  (instead of always resetting to paused), so it needs `now` threaded
+  through every path that deals a puzzle — `startGame`, `awardPoint`,
+  `skipPuzzle` gained a `now` parameter alongside `checkTimerExpired`'s
+  existing one. `main.js` passes `Date.now()` at every one of those call
+  sites (Host panel, Single mode, Play Again). No UI change was needed for
+  "Start Timer already running" — it reuses the existing
+  `disabled = timerStatus === RUNNING` check — or for the Display's
+  head-start blur, which already keys off `timerStatus === PAUSED` and
+  naturally never blurs when auto-start skips straight to running. Added a
+  setup checkbox (`#input-auto-start-timer`) next to Time per Puzzle, wired
+  through `readSetupSettings()`/`openSetup()`, and a `storage.js` default of
+  `false`. Added 3 new engine tests (autostart deals each puzzle running,
+  no-op without timerSeconds, default-off regression); verified live with a
+  Playwright script against both settings — auto-start ticks down with zero
+  clicks and disables Start Timer, unchecked leaves it paused exactly as
+  before. All 27 tests pass.

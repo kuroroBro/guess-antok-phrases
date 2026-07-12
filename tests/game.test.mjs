@@ -200,6 +200,34 @@ test('timerRemainingMs shows the full duration while paused', () => {
   assert.equal(timerRemainingMs(state, 999_999), 45_000);
 });
 
+test('autoStartTimer deals each puzzle already running, no Start Timer tap needed', () => {
+  const state = freshGame({ timerSeconds: 30, autoStartTimer: true });
+  startGame(state, 1000);
+  assert.equal(state.timerStatus, TIMER_STATUS.RUNNING);
+  assert.equal(state.timerDeadline, 31_000);
+  // startTimer is now a no-op (already running) — the Host never needs it.
+  assert.equal(startTimer(state, 2000), false);
+
+  skipPuzzle(state, 5000); // next puzzle should also start running immediately
+  assert.equal(state.timerStatus, TIMER_STATUS.RUNNING);
+  assert.equal(state.timerDeadline, 35_000);
+});
+
+test('autoStartTimer has no effect without a configured timerSeconds', () => {
+  const state = freshGame({ autoStartTimer: true });
+  startGame(state, 1000);
+  assert.equal(state.timerStatus, TIMER_STATUS.PAUSED);
+  assert.equal(state.timerDeadline, null);
+});
+
+test('without autoStartTimer, puzzles still deal paused (default behavior unchanged)', () => {
+  const state = freshGame({ timerSeconds: 30 });
+  startGame(state, 1000);
+  assert.equal(state.autoStartTimer, false);
+  assert.equal(state.timerStatus, TIMER_STATUS.PAUSED);
+  assert.equal(state.timerDeadline, null);
+});
+
 test('checkTimerExpired auto-skips (no score change) and leaves the next puzzle paused', () => {
   const state = freshGame({ timerSeconds: 30 });
   startGame(state);

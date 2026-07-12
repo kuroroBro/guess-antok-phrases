@@ -161,6 +161,7 @@ function openSetup(mode) {
   $('input-team-b').value = settings.teamNames.b;
   $('input-hints').checked = settings.hintsEnabled;
   $('input-timer').value = String(settings.timerSeconds || 0);
+  $('input-auto-start-timer').checked = settings.autoStartTimer ?? false;
   $('input-target-score').value = String(settings.targetScore || 0);
   $('setup-error').hidden = true;
   $('btn-start-single').hidden = mode !== 'single';
@@ -243,6 +244,7 @@ function readSetupSettings() {
     categoryIds: [...selectedCategoryIds],
     hintsEnabled: $('input-hints').checked,
     timerSeconds: Number($('input-timer').value),
+    autoStartTimer: $('input-auto-start-timer').checked,
     targetScore: Number($('input-target-score').value),
     teamNames: {
       a: $('input-team-a').value.trim() || 'Team A',
@@ -299,7 +301,7 @@ $('btn-start-single').addEventListener('click', () => {
   room = null;
   peerCount = 0;
   singleAnswerVisible = false;
-  startGame(game);
+  startGame(game, Date.now());
   renderSinglePanel();
   showScreen('screen-single-panel');
 });
@@ -332,7 +334,7 @@ $('btn-copy-code').addEventListener('click', () => {
 });
 
 $('btn-start-game').addEventListener('click', () => {
-  startGame(game);
+  startGame(game, Date.now());
   renderHostPanel();
   showScreen('screen-host-panel');
   broadcastState();
@@ -394,17 +396,17 @@ $('btn-start-timer').addEventListener('click', () => {
 // or a puzzle dealt). See timerTick() below.
 
 $('btn-skip').addEventListener('click', () => {
-  skipPuzzle(game);
+  skipPuzzle(game, Date.now());
   afterHostAction();
 });
 
 $('btn-award-a').addEventListener('click', () => {
-  awardPoint(game, 'a');
+  awardPoint(game, 'a', Date.now());
   afterHostAction();
 });
 
 $('btn-award-b').addEventListener('click', () => {
-  awardPoint(game, 'b');
+  awardPoint(game, 'b', Date.now());
   afterHostAction();
 });
 
@@ -437,7 +439,7 @@ function renderGameOver() {
 $('btn-play-again').addEventListener('click', () => {
   const teamNames = role === 'single' ? { a: 'Solved', b: 'Skipped' } : settings.teamNames;
   game = createGame({ ...settings, teamNames }, CATEGORIES);
-  startGame(game);
+  startGame(game, Date.now());
   if (role === 'single') {
     singleAnswerVisible = false;
     renderSinglePanel();
@@ -497,12 +499,12 @@ $('btn-single-start-timer').addEventListener('click', () => {
 });
 
 $('btn-single-skip').addEventListener('click', () => {
-  skipPuzzle(game);
+  skipPuzzle(game, Date.now());
   afterSingleAction();
 });
 
 $('btn-single-got-it').addEventListener('click', () => {
-  awardPoint(game, 'a');
+  awardPoint(game, 'a', Date.now());
   afterSingleAction();
 });
 
