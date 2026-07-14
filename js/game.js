@@ -196,3 +196,16 @@ export function maskedAnswer(puzzle) {
     isSpace: char === ' ',
   }));
 }
+
+// Solo mode's answer check: case/whitespace-insensitive exact match, used to
+// auto-validate a typed guess instead of trusting a self-judged "Got It" tap.
+// Answers here are always plain A-Z + single spaces (see categories.js), so
+// no punctuation stripping is needed — just fold case and collapse
+// whitespace from copy/paste or a stray double space.
+function normalizeGuess(s) {
+  return s.trim().toUpperCase().replace(/\s+/g, ' ');
+}
+
+export function checkGuess(answer, guess) {
+  return normalizeGuess(answer) === normalizeGuess(guess);
+}

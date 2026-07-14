@@ -1,6 +1,6 @@
 import {
   PHASE, TIMER_STATUS, createGame, startGame, revealLetter, awardPoint, skipPuzzle,
-  maskedAnswer, startTimer, checkTimerExpired, timerRemainingMs,
+  maskedAnswer, startTimer, checkTimerExpired, timerRemainingMs, checkGuess,
 } from './game.js';
 import { CATEGORIES } from './categories.js';
 import {
@@ -514,6 +514,9 @@ function renderSinglePanel() {
 function afterSingleAction() {
   markCurrentPuzzleUsed();
   singleAnswerVisible = false;
+  const input = $('single-guess-input');
+  input.value = '';
+  input.classList.remove('correct', 'incorrect');
   if (game.phase === PHASE.GAMEOVER) {
     renderGameOver();
     showScreen('screen-gameover');
@@ -540,9 +543,25 @@ $('btn-single-skip').addEventListener('click', () => {
   afterSingleAction();
 });
 
-$('btn-single-got-it').addEventListener('click', () => {
-  awardPoint(game, 'a', Date.now());
-  afterSingleAction();
+// Auto-validated instead of the old honor-system "Got It" tap: the typed
+// guess is checked against puzzle.answer, so a correct guess is the only
+// way to score. A wrong guess shakes the input and lets the player retry —
+// no penalty, no advance — same no-op-if-not-playing spirit as the rest of
+// this module's actions.
+$('single-guess-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!game || game.phase !== PHASE.PLAYING || !game.puzzle) return;
+  const input = $('single-guess-input');
+  const guess = input.value;
+  if (!guess.trim()) return;
+  if (checkGuess(game.puzzle.answer, guess)) {
+    awardPoint(game, 'a', Date.now());
+    afterSingleAction();
+  } else {
+    input.classList.remove('correct', 'incorrect');
+    void input.offsetWidth; // restart the shake animation on repeated wrong guesses
+    input.classList.add('incorrect');
+  }
 });
 
 // ==================================================================
